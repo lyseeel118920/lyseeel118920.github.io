@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html><head>
+<title>快速排序</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="快速排序算法简介">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:url" content="https://lyseeel118920.github.io/posts/quicksort/">
+  <meta property="og:site_name" content="LYZ&#39;s">
+  <meta property="og:title" content="快速排序">
+  <meta property="og:description" content="快速排序算法简介">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-12T16:35:59+08:00">
+    <meta property="article:modified_time" content="2024-07-12T16:35:59+08:00">
+    <meta property="article:tag" content="Algorithm">
+    <meta property="article:tag" content="Basics">
+
+
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="快速排序">
+  <meta name="twitter:description" content="快速排序算法简介">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "abcdefghzd");
+</script>
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>console.log("Hello from 'layouts/partials/extended_head.html'")</script>
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/introduction">
+                    Introduction
+                </a>
+                
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    Posts
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%b5%81%e7%a8%8b" class="nav-快速排序的基本流程">
+									快速排序的基本流程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e7%9a%84%e4%bb%a3%e7%a0%81%e6%a8%a1%e6%9d%bf" class="nav-快速排序的代码模板">
+									快速排序的代码模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e5%88%86%e6%9e%90" class="nav-快速排序分析">
+									快速排序分析
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://lyseeel118920.github.io/">
+            LYZ&#39;s
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://lyseeel118920.github.io/">
+        <div class="single-column-header-title">LYZ&#39;s</div>
+        
+        <div class="single-column-header-subtitle">Website</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+                
+            
+
+            <div class="post-head-wrapper"
+                
+                    
+                    
+                    style="background-image: url('https://lyseeel118920.github.io/images/quicksort/background.jpg')"
+                    
+                
+            >
+                <div class="post-title">
+                    快速排序
+                    
+                    <div class="post-subtitle">
+                        快速排序算法简介
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-07-12 16:35
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/algorithm">algorithm</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/algorithm">algorithm</a>
+                                &nbsp;
+                            
+                                <a href="/tags/basics">basics</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="快速排序的基本流程">快速排序的基本流程</h2>
+<p>
+
+
+
+
+
+
+<figure align="center" role="group" aria-describedby="caption-98ab17b5ed6f9bcb764c3b60a2fe49b0" style="text-align: center;">
+  <a href="/images/quicksort/quicksort.jpg" class="img-link">
+    <img src="/images/quicksort/quicksort.jpg" alt="快速排序示意图">
+  </a>
+  <figcaption id="caption-98ab17b5ed6f9bcb764c3b60a2fe49b0">
+    快速排序示意图
+  </figcaption>
+</figure>
+
+
+
+<div style="font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 1.8;">
+   <p>1.选择分界点/枢轴量x，通常x取q[l];</p>
+<p>2.调整区间：调整后左边区间都小于等于x，右边区间都大于等于x;</p>
+<p>3.递归处理左右两区间.</p>
+
+</div>
+
+</p>
+<h2 id="快速排序的代码模板">快速排序的代码模板</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#1e889b">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#1e889b"></span><span style="color:#8b008b;font-weight:bold">using</span> <span style="color:#8b008b;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">quick_sort</span>(<span style="color:#00688b;font-weight:bold">int</span> q[],<span style="color:#00688b;font-weight:bold">int</span> l,<span style="color:#00688b;font-weight:bold">int</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">if</span>(l&gt;=r) <span style="color:#8b008b;font-weight:bold">return</span> ;<span style="color:#228b22">//结束条件
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>	<span style="color:#00688b;font-weight:bold">int</span> x=q[l]; <span style="color:#228b22">//step1
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>	<span style="color:#00688b;font-weight:bold">int</span> i=l-<span style="color:#b452cd">1</span>,j=r+<span style="color:#b452cd">1</span>;
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#8b008b;font-weight:bold">while</span>(j&gt;i)<span style="color:#228b22">//step2
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#8b008b;font-weight:bold">do</span> i++;<span style="color:#8b008b;font-weight:bold">while</span>(q[i]&lt;x);
+</span></span><span style="display:flex;"><span>		<span style="color:#8b008b;font-weight:bold">do</span> j--;<span style="color:#8b008b;font-weight:bold">while</span>(q[j]&gt;x);
+</span></span><span style="display:flex;"><span>     	<span style="color:#8b008b;font-weight:bold">if</span>(i&lt;j)swap(q[l],q[r]);
+</span></span><span style="display:flex;"><span>     	quick_sort(q,l,j);<span style="color:#228b22">//step3
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>     	quick_sort(q,j+<span style="color:#b452cd">1</span>,r);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#00688b;font-weight:bold">int</span> i,n,q[<span style="color:#b452cd">1000</span>];
+</span></span><span style="display:flex;"><span>	scanf(<span style="color:#cd5555">&#34;%d&#34;</span>,&amp;n);
+</span></span><span style="display:flex;"><span>	<span style="color:#8b008b;font-weight:bold">for</span>(i=<span style="color:#b452cd">0</span>;i&lt;n;i++) scanf(<span style="color:#cd5555">&#34;%d&#34;</span>,&amp;q[i]);
+</span></span><span style="display:flex;"><span>	quick_sort(q,<span style="color:#b452cd">0</span>,n-<span style="color:#b452cd">1</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#8b008b;font-weight:bold">for</span>(i=<span style="color:#b452cd">0</span>;i&lt;n;i++) printf(<span style="color:#cd5555">&#34;%d &#34;</span>,q[i]);
+</span></span><span style="display:flex;"><span>	<span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#b452cd">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="快速排序分析">快速排序分析</h2>
+
+<div style="font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 1.8;">
+   <p>1.算法采用的是分治思想，分而治之;</p>
+<p>2.算法的平均时间复杂度为O(nlogn)，最坏时间复杂度为O(n^2);</p>
+<p>3.快速排序是不稳定的.</p>
+
+</div>
+
+
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2024-07-12</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/qrscxsj/">
+			Next<br>嵌入式程序设计
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/zzkk/">
+			Previous<br>自主可控嵌入式系统
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/repo"
+        data-repo-id="**************************"
+        data-category="General"
+        data-category-id="*********************"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://lyseeel118920.github.io/">
+    
+        <div class="nav-title">
+            LYZ&#39;s
+        </div>
+        
+        <div class="nav-subtitle">
+            Website
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/introduction">
+                Introduction
+            </a>
+            
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Posts
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+</div>
+<div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%b5%81%e7%a8%8b" class="nav-快速排序的基本流程">
+									快速排序的基本流程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e7%9a%84%e4%bb%a3%e7%a0%81%e6%a8%a1%e6%9d%bf" class="nav-快速排序的代码模板">
+									快速排序的代码模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f%e5%88%86%e6%9e%90" class="nav-快速排序分析">
+									快速排序分析
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

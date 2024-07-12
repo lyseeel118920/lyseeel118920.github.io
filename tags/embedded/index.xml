@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Embedded on LYZ&#39;s</title>
+    <link>https://lyseeel118920.github.io/tags/embedded/</link>
+    <description>Recent content in Embedded on LYZ&#39;s</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Fri, 12 Jul 2024 17:06:25 +0800</lastBuildDate>
+    <atom:link href="https://lyseeel118920.github.io/tags/embedded/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>嵌入式程序设计</title>
+      <link>https://lyseeel118920.github.io/posts/qrscxsj/</link>
+      <pubDate>Fri, 12 Jul 2024 17:06:25 +0800</pubDate>
+      <guid>https://lyseeel118920.github.io/posts/qrscxsj/</guid>
+      <description>课程简介 本课程主要介绍了Linux操作系统的基本使用，shell脚本，gcc，gdb，makefile，到基于linux的文件编程，网络编程和驱动程序编程等技术。此门课程期末考试难度较高，对实验和编程能力的要求较高，不宜临时抱佛脚。 笔记 </description>
+    </item>
+    <item>
+      <title>自主可控嵌入式系统</title>
+      <link>https://lyseeel118920.github.io/posts/zzkk/</link>
+      <pubDate>Fri, 12 Jul 2024 10:45:25 +0800</pubDate>
+      <guid>https://lyseeel118920.github.io/posts/zzkk/</guid>
+      <description>笔记 实验报告 </description>
+    </item>
+  </channel>
+</rss>

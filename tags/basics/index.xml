@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basics on LYZ&#39;s</title>
+    <link>https://lyseeel118920.github.io/tags/basics/</link>
+    <description>Recent content in Basics on LYZ&#39;s</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Fri, 12 Jul 2024 17:06:25 +0800</lastBuildDate>
+    <atom:link href="https://lyseeel118920.github.io/tags/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>嵌入式程序设计</title>
+      <link>https://lyseeel118920.github.io/posts/qrscxsj/</link>
+      <pubDate>Fri, 12 Jul 2024 17:06:25 +0800</pubDate>
+      <guid>https://lyseeel118920.github.io/posts/qrscxsj/</guid>
+      <description>课程简介 本课程主要介绍了Linux操作系统的基本使用，shell脚本，gcc，gdb，makefile，到基于linux的文件编程，网络编程和驱动程序编程等技术。此门课程期末考试难度较高，对实验和编程能力的要求较高，不宜临时抱佛脚。 笔记 </description>
+    </item>
+    <item>
+      <title>快速排序</title>
+      <link>https://lyseeel118920.github.io/posts/quicksort/</link>
+      <pubDate>Fri, 12 Jul 2024 16:35:59 +0800</pubDate>
+      <guid>https://lyseeel118920.github.io/posts/quicksort/</guid>
+      <description>快速排序的基本流程 快速排序示意图 1.选择分界点/枢轴量x，通常x取q[l];&#xA;2.调整区间：调整后左边区间都小于等于x，右边区间都大于等于x;&#xA;3.递归处理左右两区间.&#xA;快速排序的代码模板 #include&amp;lt;iostream&amp;gt; using namespace std; void quick_sort(int q[],int l,int r) { if(l&amp;gt;=r) return ;//结束条件 int x=q[l]; //step1 int i=l-1,j=r+1; while(j&amp;gt;i)//step2 { do i++;while(q[i]&amp;lt;x); do j--;while(q[j]&amp;gt;x); if(i&amp;lt;j)swap(q[l],q[r]); quick_sort(q,l,j);//step3 quick_sort(q,j+1,r); } } int main() { int i,n,q[1000]; scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for(i=0;i&amp;lt;n;i++) scanf(&amp;#34;%d&amp;#34;,&amp;amp;q[i]); quick_sort(q,0,n-1); for(i=0;i&amp;lt;n;i++) printf(&amp;#34;%d &amp;#34;,q[i]); return 0; } 快速排序分析 1.算法采用的是分治思想，分而治之;&#xA;2.算法的平均时间复杂度为O(nlogn)，最坏时间复杂度为O(n^2);&#xA;3.快速排序是不稳定的.</description>
+    </item>
+    <item>
+      <title>自主可控嵌入式系统</title>
+      <link>https://lyseeel118920.github.io/posts/zzkk/</link>
+      <pubDate>Fri, 12 Jul 2024 10:45:25 +0800</pubDate>
+      <guid>https://lyseeel118920.github.io/posts/zzkk/</guid>
+      <description>笔记 实验报告 </description>
+    </item>
+  </channel>
+</rss>
