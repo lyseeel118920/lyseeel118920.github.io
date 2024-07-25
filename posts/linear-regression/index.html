@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html><head>
-<title>嵌入式程序设计</title>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<title>Linear Regression</title>
 
 
 
@@ -10,23 +10,23 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="包括嵌入式程序设计课程笔记和内容简介">
+<meta name="description" content="">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
 
 
-<meta property="og:url" content="https://lyseeel118920.github.io/posts/qrscxsj/">
+<meta property="og:url" content="http://localhost:1313/posts/linear-regression/">
   <meta property="og:site_name" content="LYZ&#39;s">
-  <meta property="og:title" content="嵌入式程序设计">
-  <meta property="og:description" content="包括嵌入式程序设计课程笔记和内容简介">
+  <meta property="og:title" content="Linear Regression">
+  <meta property="og:description" content="1.Machine Learning Types of machine learning type target data set algorithm supervised learning learning from being given right answers,
+learning X-&gt;Y Y is labeled Regression(回归) Classification(分类) unsupervised learning Algorithm has to find structure in the data Data only comes with inputs X, but not output labels Y clustering (聚类) Anomaly detection
+(异常检测) Dimensionality reduction (降维) supervised learning type target Regression(回归) Predict a number (infinitely many possible outputs) Classification(分类) Predict categories (small number of possible outputs) 2.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-07-12T17:06:25+08:00">
-    <meta property="article:modified_time" content="2024-07-12T17:06:25+08:00">
-    <meta property="article:tag" content="Embedded">
-    <meta property="article:tag" content="Basics">
+    <meta property="article:published_time" content="2024-07-13T19:51:05+08:00">
+    <meta property="article:modified_time" content="2024-07-13T19:51:05+08:00">
 
 
 
@@ -34,8 +34,10 @@
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="嵌入式程序设计">
-  <meta name="twitter:description" content="包括嵌入式程序设计课程笔记和内容简介">
+  <meta name="twitter:title" content="Linear Regression">
+  <meta name="twitter:description" content="1.Machine Learning Types of machine learning type target data set algorithm supervised learning learning from being given right answers,
+learning X-&gt;Y Y is labeled Regression(回归) Classification(分类) unsupervised learning Algorithm has to find structure in the data Data only comes with inputs X, but not output labels Y clustering (聚类) Anomaly detection
+(异常检测) Dimensionality reduction (降维) supervised learning type target Regression(回归) Predict a number (infinitely many possible outputs) Classification(分类) Predict categories (small number of possible outputs) 2.">
 
 
 
@@ -74,6 +76,26 @@
 
 
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
 
 
 
@@ -163,6 +185,24 @@
 						
 						
 						
+						
+							<li>
+								<a href="#1machine-learning" class="nav-1machine-learning">
+									1.Machine Learning
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
 							
 								
 									<ul>
@@ -171,8 +211,8 @@
 						
 						
 							<li>
-								<a href="#%e8%af%be%e7%a8%8b%e7%ae%80%e4%bb%8b" class="nav-课程简介">
-									课程简介
+								<a href="#types-of-machine-learning" class="nav-types-of-machine-learning">
+									Types of machine learning
 								</a>
 							</li>
 						
@@ -189,8 +229,54 @@
 						
 						
 							<li>
-								<a href="#%e7%ac%94%e8%ae%b0" class="nav-笔记">
-									笔记
+								<a href="#supervised-learning" class="nav-supervised-learning">
+									supervised learning
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2linear-regression" class="nav-2linear-regression">
+									2.Linear Regression
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#some-words-explaination" class="nav-some-words-explaination">
+									Some Words’ Explaination
 								</a>
 							</li>
 						
@@ -217,7 +303,7 @@
                 menu
             </i>
         </button>
-        <a id="navTitle" class="navbar-brand" href="https://lyseeel118920.github.io/">
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/">
             LYZ&#39;s
         </a>
         
@@ -231,7 +317,7 @@
 </nav>
 <div class="single-column-header-container" id="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="https://lyseeel118920.github.io/">
+    <a href="http://localhost:1313/">
         <div class="single-column-header-title">LYZ&#39;s</div>
         
         <div class="single-column-header-subtitle">Website</div>
@@ -248,46 +334,22 @@
             
             
             
-                
-            
 
-            <div class="post-head-wrapper"
-                
-                    
-                    
-                    style="background-image: url('https://lyseeel118920.github.io/images/qrscxsj/qrscxsj.jpg')"
-                    
+            <div class="post-head-wrapper-text-only"
                 
             >
                 <div class="post-title">
-                    嵌入式程序设计
-                    
-                    <div class="post-subtitle">
-                        包括嵌入式程序设计课程笔记和内容简介
-                    </div>
+                    Linear Regression
                     
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2024-07-12 17:06
+                            2024-07-13 19:51
                         </time>
                         
 
                         
-                            <i class="material-icons" style="">folder</i>
-                                <a href="/categories/embedded">embedded</a>
-                                &nbsp;
-                        
 
-                        
-                            <i class="material-icons" style="">label</i>
-                            
-                                <a href="/tags/embedded">embedded</a>
-                                &nbsp;
-                            
-                                <a href="/tags/basics">basics</a>
-                                &nbsp;
-                            
                         
                         
                     </div>
@@ -298,21 +360,64 @@
                 
                 <div class="post-body" v-pre>
                 
-                    <h2 id="课程简介">课程简介</h2>
+                    <h1 id="1machine-learning">1.Machine Learning</h1>
 
 <div style="font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 1.8;">
-   本课程主要介绍了Linux操作系统的基本使用，shell脚本，gcc，gdb，makefile，到基于linux的文件编程，网络编程和驱动程序编程等技术。此门课程期末考试难度较高，对实验和编程能力的要求较高，不宜临时抱佛脚。
+   <h2 id="types-of-machine-learning">Types of machine learning</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">type</th>
+<th style="text-align:center">target</th>
+<th style="text-align:center">data set</th>
+<th style="text-align:center">algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">supervised learning</td>
+<td style="text-align:center">learning from being given right answers,<br>learning X-&gt;Y</td>
+<td style="text-align:center">Y is labeled</td>
+<td style="text-align:center">Regression(回归) <br>Classification(分类)</td>
+</tr>
+<tr>
+<td style="text-align:center">unsupervised learning</td>
+<td style="text-align:center">Algorithm has to find structure in the data</td>
+<td style="text-align:center">Data only comes with inputs X, but not output labels Y</td>
+<td style="text-align:center">clustering (聚类) <br> Anomaly detection<br> (异常检测) <br> Dimensionality reduction (降维)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="supervised-learning">supervised learning</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">type</th>
+<th style="text-align:center">target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Regression(回归)</td>
+<td style="text-align:center">Predict a number  (infinitely many possible outputs)</td>
+</tr>
+<tr>
+<td style="text-align:center">Classification(分类)</td>
+<td style="text-align:center">Predict <strong>categories</strong> (small number of possible outputs)</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 
 
-<h2 id="笔记">笔记</h2>
-<iframe src="/pdf/qrscxsj.pdf" width="100%" height="900" style="border: none;"></iframe>
-
-
+<h1 id="2linear-regression">2.Linear Regression</h1>
+<h2 id="some-words-explaination">Some Words&rsquo; Explaination</h2>
 
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">Last modified on 2024-07-12</p>
+		    <p style="color:#777;">Last modified on 2024-07-13</p>
                     
                 </div>
             </div>
@@ -321,14 +426,14 @@
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="/posts/chengdu/">
-			Next<br>成都行
+                <a class="newer-posts">
+			Next<br>No newer posts.
                 </a>
                 
                 
                 
-                <a class="older-posts" href="/posts/quicksort/">
-			Previous<br>算法模板
+                <a class="older-posts" href="/posts/chengdu/">
+			Previous<br>成都行
                 </a>
                 
             </nav>
@@ -370,7 +475,7 @@
                     </div>
             </div><div id="sideContainer" class="side-container">
     
-    <a class="a-block nav-head false" href="https://lyseeel118920.github.io/">
+    <a class="a-block nav-head false" href="http://localhost:1313/">
     
         <div class="nav-title">
             LYZ&#39;s
@@ -456,6 +561,24 @@
 						
 						
 						
+						
+							<li>
+								<a href="#1machine-learning" class="nav-1machine-learning">
+									1.Machine Learning
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
 							
 								
 									<ul>
@@ -464,8 +587,8 @@
 						
 						
 							<li>
-								<a href="#%e8%af%be%e7%a8%8b%e7%ae%80%e4%bb%8b" class="nav-课程简介">
-									课程简介
+								<a href="#types-of-machine-learning" class="nav-types-of-machine-learning">
+									Types of machine learning
 								</a>
 							</li>
 						
@@ -482,8 +605,54 @@
 						
 						
 							<li>
-								<a href="#%e7%ac%94%e8%ae%b0" class="nav-笔记">
-									笔记
+								<a href="#supervised-learning" class="nav-supervised-learning">
+									supervised learning
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2linear-regression" class="nav-2linear-regression">
+									2.Linear Regression
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#some-words-explaination" class="nav-some-words-explaination">
+									Some Words’ Explaination
 								</a>
 							</li>
 						

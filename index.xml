@@ -805,12 +805,13 @@
     
     
         <item>
-        <title>快速排序</title>
+        <title>算法模板</title>
         <link>https://lyseeel118920.github.io/posts/quicksort/</link>
         <pubDate>Fri, 12 Jul 2024 16:35:59 +0800</pubDate>
         
         <guid>https://lyseeel118920.github.io/posts/quicksort/</guid>
-        <description>LYZ&#39;s https://lyseeel118920.github.io/posts/quicksort/ -&lt;h2 id=&#34;快速排序的基本流程&#34;&gt;快速排序的基本流程&lt;/h2&gt;
+        <description>LYZ&#39;s https://lyseeel118920.github.io/posts/quicksort/ -&lt;h1 id=&#34;1快速排序&#34;&gt;1.快速排序&lt;/h1&gt;
+&lt;h2 id=&#34;快速排序的基本流程&#34;&gt;快速排序的基本流程&lt;/h2&gt;
 &lt;p&gt;
 
 
@@ -838,27 +839,32 @@
 
 &lt;/p&gt;
 &lt;h2 id=&#34;快速排序的代码模板&#34;&gt;快速排序的代码模板&lt;/h2&gt;
+
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   值得注意的是，博客中所有的代码示例都是验证过的正确的C++代码，可以直接运行或调用。
+&lt;/div&gt;
+
+
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1e889b&#34;&gt;#include&amp;lt;iostream&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1e889b&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;namespace&lt;/span&gt; std;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;quick_sort&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; q[],&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; l,&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; r)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(l&amp;gt;=r) &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; ;&lt;span style=&#34;color:#228b22&#34;&gt;//结束条件
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; x=q[l]; &lt;span style=&#34;color:#228b22&#34;&gt;//step1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; x=q[l+r&amp;gt;&amp;gt;&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;]; &lt;span style=&#34;color:#228b22&#34;&gt;//step1
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; i=l-&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;,j=r+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(j&amp;gt;i)&lt;span style=&#34;color:#228b22&#34;&gt;//step2
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;	{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;do&lt;/span&gt; i++;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(q[i]&amp;lt;x);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;do&lt;/span&gt; j--;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(q[j]&amp;gt;x);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(i&amp;lt;j)swap(q[l],q[r]);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     	quick_sort(q,l,j);&lt;span style=&#34;color:#228b22&#34;&gt;//step3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;     	quick_sort(q,j+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;,r);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(i&amp;lt;j)swap(q[i],q[j]);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	quick_sort(q,l,j);&lt;span style=&#34;color:#228b22&#34;&gt;//step3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;     	quick_sort(q,j+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;,r);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;main&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; i,n,q[&lt;span style=&#34;color:#b452cd&#34;&gt;1000&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; i,n,q[&lt;span style=&#34;color:#b452cd&#34;&gt;100000&lt;/span&gt;];
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	scanf(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&amp;amp;n);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt;(i=&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;;i&amp;lt;n;i++) scanf(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&amp;amp;q[i]);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	quick_sort(q,&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;,n-&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;);
@@ -866,7 +872,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;快速排序分析&#34;&gt;快速排序分析&lt;/h2&gt;
-
+&lt;h2 id=&#34;hahahugoshortcode5s3hbhb&#34;&gt;
 &lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
    &lt;p&gt;1.算法采用的是分治思想，分而治之;&lt;/p&gt;
 &lt;p&gt;2.算法的平均时间复杂度为O(nlogn)，最坏时间复杂度为O(n^2);&lt;/p&gt;
@@ -874,7 +880,116 @@
 
 &lt;/div&gt;
 
+&lt;/h2&gt;
+&lt;h1 id=&#34;2归并排序&#34;&gt;2.归并排序&lt;/h1&gt;
+&lt;h2 id=&#34;归并排序的基本流程&#34;&gt;归并排序的基本流程&lt;/h2&gt;
 
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   &lt;p&gt;1.计算中间点：$mid = \frac{r + l}{2}$&lt;/p&gt;
+&lt;p&gt;2.给左右两区间递归排序&lt;/p&gt;
+&lt;p&gt;3.给排好序的两个区间归并成一个有序区间&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;归并排序的代码模板&#34;&gt;归并排序的代码模板&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1e889b&#34;&gt;#include&amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1e889b&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;namespace&lt;/span&gt; std;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; temp[&lt;span style=&#34;color:#b452cd&#34;&gt;1000&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;merge_soft&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt;* p,&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; l,&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; r)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(l&amp;gt;=r) &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; mid=l+r&amp;gt;&amp;gt;&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	merge_soft(p,l,mid);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	merge_soft(p,mid+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;,r);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; i=l,j=mid+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;,k=l;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(i&amp;lt;=mid&amp;amp;&amp;amp;j&amp;lt;=r)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(p[i]&amp;lt;=p[j]) temp[k++]=p[i++];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;else&lt;/span&gt;           temp[k++]=p[j++];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(i&amp;lt;=mid) temp[k++]=p[i++];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(j&amp;lt;=r)   temp[k++]=p[j++];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt;(i=l;i&amp;lt;=r;i++) p[i]=temp[i];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;main&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; n;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	scanf(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;&lt;/span&gt;,&amp;amp;n);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; p[&lt;span style=&#34;color:#b452cd&#34;&gt;1000&lt;/span&gt;],i;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt;(i=&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;;i&amp;lt;n;i++)scanf(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;,&amp;amp;p[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	merge_soft(p,&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;,n-&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt;(i=&lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;;i&amp;lt;n;i++)printf(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;,p[i]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;归并排序分析&#34;&gt;归并排序分析&lt;/h2&gt;
+&lt;h2 id=&#34;hahahugoshortcode5s5hbhb&#34;&gt;
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   &lt;p&gt;1.算法也采用的是分治思想;&lt;/p&gt;
+&lt;p&gt;2.归并排序的时间复杂度为O(nlogn)；&lt;/p&gt;
+&lt;p&gt;3.归并排序是稳定的.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/h2&gt;
+&lt;h1 id=&#34;3二分查找&#34;&gt;3.二分查找&lt;/h1&gt;
+&lt;h2 id=&#34;整数二分的基本流程&#34;&gt;整数二分的基本流程&lt;/h2&gt;
+
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   &lt;h2 id=&#34;二分查找法步骤&#34;&gt;二分查找法步骤&lt;/h2&gt;
+&lt;p&gt;1.确定目标所满足的性质，是求左边界还是右边界（&lt;code&gt;&amp;gt;=&lt;/code&gt; 还是 &lt;code&gt;&amp;lt;=&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;2.确定 &lt;code&gt;mid&lt;/code&gt; 的计算方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. 对于左边界问题，$mid = \frac{l + r}{2} $&lt;/li&gt;
+&lt;li&gt;B. 对于右边界问题，$mid = \frac{l + r + 1}{2} $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3.更新目标区间范围：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. 对于左边界问题，如果 &lt;code&gt;check(mid) = true&lt;/code&gt;，则使 &lt;code&gt;r = mid&lt;/code&gt;；如果 &lt;code&gt;check(mid) = false&lt;/code&gt;，则使 &lt;code&gt;l = mid + 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;B. 对于右边界问题，如果 &lt;code&gt;check(mid) = true&lt;/code&gt;，则使 &lt;code&gt;l = mid&lt;/code&gt;；如果 &lt;code&gt;check(mid) = false&lt;/code&gt;，则使 &lt;code&gt;r = mid - 1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该问题通过多次迭代，缩小目标所在的区间范围（初始区间范围为 $[l, r]$）。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;整数二分的代码模板&#34;&gt;整数二分的代码模板&lt;/h2&gt;
+
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   模板中的check(mid)函数需要根据查找问题的不同自行设计。
+&lt;/div&gt;
+
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;bsearch_1&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; l,&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; r) &lt;span style=&#34;color:#228b22&#34;&gt;//左边界问题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;{  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(l&amp;lt;r)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; mid=l+r&amp;gt;&amp;gt;&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(check(mid))	r=mid;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;else&lt;/span&gt;	l=mid+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; l;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;bsearch_2&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; l,&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; r)&lt;span style=&#34;color:#228b22&#34;&gt;//右边界问题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;{  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt;(l&amp;lt;r)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; mid=l+r+&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;&amp;gt;&amp;gt;&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt;(check(mid))	l=mid;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	 &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;else&lt;/span&gt;	r=mid-&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; l;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;浮点数二分&#34;&gt;浮点数二分&lt;/h2&gt;
+
+&lt;div style=&#34;font-family: &#39;Times New Roman&#39;, Times, serif; font-size: 18px; line-height: 1.8;&#34;&gt;
+   浮点数二分不需要考虑边界问题，因此只需要在第一套模板的基础上，修改while条件为r-l&amp;gt;某一个极小精度值，即满足r-l趋于0时，才循环停止。
+&lt;/div&gt;
+
+
+&lt;hr&gt;
 - https://lyseeel118920.github.io/posts/quicksort/ - This is a customized copyright.</description>
         </item>
     
